@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="./public/contact.css">
+</head>
+<body>
+        
+    <header>
+        <h1>Connect with me</h1>
+        <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="about.html">About me</a></li>
+        </ul>
+    </header>
+    
+    <div class="container">
+        
+        <form id="contact-form" onsubmit="return validateForm()">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required oninput="validateName(this.value)">
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required placeholder="example@testmail.com" oninput="validateEmail(this.value)">
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone number</label>
+                <input type="Text" id="phone" name="phone" required placeholder="Enter the 10 digit phone number" oninput="validatePhonenumber(this.value)">
+            </div>
+            <div class="form-group">
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="4" required placeholder="Enter a message with less than 50 words" oninput="validateMessage(this.value)"></textarea>
+            </div>
+            <div class="form-group">
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+        <div id="message-container" style="display:none"></div>
+    </div>
+
+    <script src="./validation.js"></script>
+</body>
+</html>

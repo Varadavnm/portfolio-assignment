@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Home</title>
+    <link rel="stylesheet" href="./public/style.css">
+</head>
+<body>
+    <!-- Header -->
+    <table id="header" border="0" width="100%" cellpadding="0" cellspacing="0" bgcolor="#4CAF50">
+        <tr>
+            <td>
+                <table border="0" cellpadding="15" cellspacing="0" width="90%" align="center">
+                    <tr>
+                        <td></td>
+                        <td>
+                            <font face="Comic sans MS" size="6">
+                                <b>My page</b>
+                            </font>
+                        </td>
+                        <td width="15%"></td>
+                     
+                        <td>|</td>
+                        <td>
+                            <div class="container">
+                                <button id="showAboutBtn" onclick="toggleAbout()">About</button>
+                            </div>
+                            </a>
+                        </td>
+                        <td>|</td>
+                        <td>
+                            <div class="container">
+                                <button id="showContactFormBtn" onclick="toggleContactForm()">Contact</button>
+                            </div>
+                        </td>
+                        <td>|</td>
+                        <td>
+                            <div class="container">
+                                <button id="showProjectBtn" onclick="toggleProject()">Project</button>
+                            </div>
+                        </td>
+                        <td>|</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+
+    <!-- Home Section -->
+    <table id="home" border="1" width="100%" cellpadding="20" cellspacing="0" bgcolor="#F8F4EC">
+        <tr>
+            <td>
+                <table border="0" cellpadding="15" cellspacing="0" width="90%" align="center">
+                    <tr>
+                        <td align="center" valign="middle">
+                            <h3>
+                                <font face="Times New Roman" size="6" color="black">
+                                    Freelance Programmer
+                                </font>
+                            </h3>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+
+    <!-- Contact Section -->
+    <div class="container" id="contactSection" style="display: none;">
+        <form id="contact-form" onsubmit="return validateForm()">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required oninput="validateName(this.value)">
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required placeholder="example@testmail.com" oninput="validateEmail(this.value)">
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone number</label>
+                <input type="text" id="phone" name="phone" required placeholder="Enter the 10 digit phone number" oninput="validatePhonenumber(this.value)">
+            </div>
+            <div class="form-group">
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="4" required placeholder="Enter a message with less than 50 words" oninput="validateMessage(this.value)"></textarea>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="submit">Submit</button>
+            </div>
+        </form>
+        <div id="message-container" style="display:none"></div>
+    </div>
+
+    <!-- About Section -->
+    <section class="about-section" id="aboutSection" style="display: none;">
+        <h1>About Me</h1>
+        <img src="cutegirl.jpg" alt="Profile Picture">
+        <p>
+            I am a passionate freelance programmer with a strong background in web development.
+            My journey in the world of coding started two years ago when I discovered my love for
+            creating web applications. Since then, I have been honing my skills and
+            working on a wide range of projects.
+        </p>
+        <p>
+            I specialize in front-end and back-end development, and I'm proficient in languages like
+            HTML, CSS, JavaScript, Python, and more. I have a keen eye for design and enjoy creating
+            visually appealing and user-friendly websites.
+        </p>
+        <p>
+            As a freelancer, I am committed to delivering high-quality solutions to my clients.
+            Whether it's building a responsive website, optimizing performance, or solving complex
+            coding challenges, I'm always up for the task.
+        </p>
+        <p>
+            When I'm not coding, you can find me exploring the latest tech trends, contributing to
+            open-source projects, or enjoying a good cup of coffee while brainstorming new ideas.
+        </p>
+    </section>
+
+    <!-- Project Section -->
+    <div class="project" id="projectSection" style="display: none;">
+        <h4>My Projects</h4>
+        <ul>
+            <li>
+                <a href="#">Grocery Store application</a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="footer-content">
+            <h2>Contact Information</h2>
+            <p>Email: contact@example.com</p>
+            <p>Phone: +1 (123) 456-7890</p>
+        </div>
+        <div class="social-icons">
+            <a href="#" target="_blank">
+                <img src="facebook-icon.png" alt="Facebook Icon">
+            </a>
+            <a href="#" target="_blank">
+                <img src="twitter-icon.png" alt="Twitter Icon">
+            </a>
+            <a href="#" target="_blank">
+                <img src="linkedin-icon.png" alt="LinkedIn Icon">
+            </a>
+            <a href="#" target="_blank">
+                <img src="instagram-icon.png" alt="Instagram Icon">
+            </a>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="./validation.js"></script>
+    <script>
+        function toggleContactForm() {
+            var contactSection = document.getElementById('contactSection');
+            var aboutSection = document.getElementById('aboutSection');
+            var projectSection = document.getElementById('projectSection');
+
+            contactSection.style.display = 'block';
+            aboutSection.style.display = 'none';
+            projectSection.style.display = 'none';
+        }
+
+        function toggleProject() {
+            var contactSection = document.getElementById('contactSection');
+            var aboutSection = document.getElementById('aboutSection');
+            var projectSection = document.getElementById('projectSection');
+
+            contactSection.style.display = 'none';
+            aboutSection.style.display = 'none';
+            projectSection.style.display = 'block';
+        }
+
+        function toggleAbout() {
+            var contactSection = document.getElementById('contactSection');
+            var aboutSection = document.getElementById('aboutSection');
+            var projectSection = document.getElementById('projectSection');
+
+            contactSection.style.display = 'none';
+            aboutSection.style.display = 'block';
+            projectSection.style.display = 'none';
+        }
+    </script>
+</body>
+</html>
